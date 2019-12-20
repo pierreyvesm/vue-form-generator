@@ -1,3 +1,10 @@
+## <small>2.3.10 (2019-12-20)</small>
+
+* add lambda to label ([1c93077](https://github.com/vue-generators/vue-form-generator/commit/1c93077))
+* drawer without styling ([5401888](https://github.com/vue-generators/vue-form-generator/commit/5401888))
+
+
+
 ## <small>2.3.9 (2019-10-31)</small>
 
 
