@@ -47,7 +47,9 @@ export default {
 							{
 								type: "input",
 								inputType: "text",
-								label: "Maturity Date or Tenor",
+								label: () => {
+									return "ksjdhf";
+								},
 								model: "maturity_date",
 								required: true
 							},
@@ -63,7 +65,9 @@ export default {
 								inputType: "text",
 								label: "Currency",
 								model: "currency",
-								required: true
+								required: () => {
+									return false;
+								}
 							},
 							{
 								type: "input",
@@ -248,6 +252,16 @@ export default {
 
 	created() {
 		window.app = this;
+	},
+	computed: {
+		jsonSchema: {
+			get() {
+				return JSON.stringify(this.schema, null, 2);
+			},
+			set(value) {
+				this.schema = JSON.parse(value);
+			}
+		}
 	}
 };
 </script>

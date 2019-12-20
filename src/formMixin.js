@@ -15,7 +15,7 @@ export default {
 			};
 
 			if (isArray(field.styleClasses)) {
-				forEach(field.styleClasses, c => (baseClasses[c] = true));
+				forEach(field.styleClasses, (c) => (baseClasses[c] = true));
 			} else if (isString(field.styleClasses)) {
 				baseClasses[field.styleClasses] = true;
 			}
@@ -27,8 +27,8 @@ export default {
 			return baseClasses;
 		},
 		fieldErrors(field) {
-			let res = this.errors.filter(e => e.field === field);
-			return res.map(item => item.error);
+			let res = this.errors.filter((e) => e.field === field);
+			return res.map((item) => item.error);
 		},
 		// Get disabled attr of field
 		fieldDisabled(field) {
@@ -37,6 +37,13 @@ export default {
 			if (isNil(field.disabled)) return false;
 
 			return field.disabled;
+		},
+		fieldLabel(field) {
+			if (isFunction(field.label)) return field.label.call(this, this.model, field, this);
+
+			if (isNil(field.label)) return "";
+
+			return field.label;
 		},
 		// Get readonly prop of field
 		fieldReadonly(field) {
