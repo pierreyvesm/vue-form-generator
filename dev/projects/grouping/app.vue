@@ -24,6 +24,7 @@ export default {
 		return {
 			model: {
 				name: "",
+				effective_date: "",
 				email: "brian@hawkman.mongo",
 				others: {
 					more: "More",
@@ -47,8 +48,8 @@ export default {
 							{
 								type: "input",
 								inputType: "text",
-								label: () => {
-									return "ksjdhf";
+								label: (mn) => {
+									return mn.notional === 11 ? "aaa" : "bbbb";
 								},
 								model: "maturity_date",
 								required: true
@@ -63,10 +64,12 @@ export default {
 							{
 								type: "input",
 								inputType: "text",
-								label: "Currency",
+								label: (mn) => {
+									return mn.notional === 11 ? "aaa" : "bbbb";
+								},
 								model: "currency",
-								required: () => {
-									return false;
+								visible: (mn) => {
+									return mn.notional === 11;
 								}
 							},
 							{
@@ -74,7 +77,12 @@ export default {
 								inputType: "number",
 								label: "Notional",
 								model: "notional",
-								required: true
+								visible: () => {
+									return this.effective_date !== "aa";
+								},
+								required: () => {
+									return this.effective_date !== "vv";
+								}
 							},
 							{
 								type: "input",
@@ -90,7 +98,7 @@ export default {
 						legend: "Advanced",
 						foldable: true,
 						styleClasses: "advance",
-
+						visible: (mn) => mn.effective_date === "aa",
 						groups: [
 							{
 								legend: "Fixed Leg",

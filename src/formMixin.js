@@ -45,6 +45,13 @@ export default {
 
 			return field.label;
 		},
+		fieldVisible(field) {
+			if (isFunction(field.visible)) return field.visible.call(this, this.model, field, this);
+
+			if (isNil(field.visible)) return true;
+
+			return field.visible;
+		},
 		// Get readonly prop of field
 		fieldReadonly(field) {
 			if (isFunction(field.readonly)) return field.readonly.call(this, this.model, field, this);

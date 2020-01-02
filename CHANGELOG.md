@@ -1,3 +1,8 @@
+## <small>2.3.11 (2020-01-02)</small>
+
+
+
+
 ## <small>2.3.10 (2019-12-20)</small>
 
 * add lambda to label ([1c93077](https://github.com/vue-generators/vue-form-generator/commit/1c93077))

@@ -1,6 +1,6 @@
 <template lang="pug">
 	section.form-group
-		template(v-for='group in groups'  v-if="groupVisible(group)")
+		template(v-for='group in groups' v-if="fieldVisible(group)")
 			drawer(v-if="groupFoldable(group)", :group="group", :model="model")
 				fieldset(slot="title")
 					legend {{ group.legend }}
@@ -8,14 +8,14 @@
 					fieldset(:is='tag', :id="group.id")
 					template(v-if="group.fields")
 						template(v-for='field in group.fields')
-							form-field(v-if='fieldVisible(field)', :vfg="vfg", :field="field", :errors="errors", :model="model", :options="options", @validated="onFieldValidated", @model-updated="onModelUpdated")
+							form-field(:vfg="vfg", :field="field", :errors="errors", :model="model", :options="options", @validated="onFieldValidated", @model-updated="onModelUpdated")
 					form-group(:class="getFieldRowClasses(group)", v-if="group.groups", :options="options", :tag="tag", :groups="group.groups", :model="model", :vfg="vfg", @validated="onFieldValidated", @model-updated="onModelUpdated")
 			template(v-else)
 				fieldset(:is='tag', :class='getFieldRowClasses(group)', :id="group.id")
 					legend(v-if='group.legend') {{ group.legend }}
 					template(v-if="group.fields")
 						template(v-for='field in group.fields')
-							form-field(v-if='fieldVisible(field)', :vfg="vfg", :field="field", :errors="errors", :model="model", :options="options", @validated="onFieldValidated", @model-updated="onModelUpdated")
+							form-field(:vfg="vfg", :field="field", :errors="errors", :model="model", :options="options", @validated="onFieldValidated", @model-updated="onModelUpdated")
 					form-group(:class="getFieldRowClasses(group)", v-if="group.groups",:options="options", :tag="tag", :groups="group.groups", :model="model", :vfg="vfg", @validated="onFieldValidated", @model-updated="onModelUpdated")
 </template>
 
@@ -42,17 +42,6 @@ export default {
 		};
 	},
 	methods: {
-		fieldVisible(field) {
-			if (isFunction(field.visible)) return field.visible.call(this, this.model, field, this);
-
-			if (isNil(field.visible)) return true;
-
-			return field.visible;
-		},
-		groupVisible(group) {
-			return this.fieldVisible(group);
-		},
-
 		groupFoldable(group) {
 			if (isFunction(group.foldable)) return group.foldable.call(this, this.model, group, this);
 
