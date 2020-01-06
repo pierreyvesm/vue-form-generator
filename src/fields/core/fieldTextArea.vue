@@ -1,4 +1,5 @@
 <template lang="pug">
+div 
 	textarea.form-control(
 		v-model="value",
 		:id="getFieldID(schema)",
@@ -6,7 +7,7 @@
 		:disabled="disabled",
 		:maxlength="schema.max",
 		:minlength="schema.min",
-		:placeholder="schema.placeholder",
+		:placeholder="placeholder",
 		:readonly="schema.readonly",
 		:required="schema.required",
 		:rows="schema.rows || 2",
@@ -24,5 +25,4 @@ export default {
 
 
 <style lang="scss">
-
 </style>

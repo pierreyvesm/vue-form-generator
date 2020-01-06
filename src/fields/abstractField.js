@@ -1,4 +1,14 @@
-import { get as objGet, forEach, isFunction, isString, isArray, debounce, uniqueId, uniq as arrayUniq } from "lodash";
+import {
+	get as objGet,
+	forEach,
+	isFunction,
+	isString,
+	isArray,
+	isNil,
+	debounce,
+	uniqueId,
+	uniq as arrayUniq
+} from "lodash";
 import validators from "../utils/validators";
 import { slugifyFormID } from "../utils/schema";
 
@@ -67,6 +77,15 @@ export default {
 					this.updateModelValue(newValue, oldValue);
 				}
 			}
+		},
+		placeholder() {
+			console.log("jh");
+			if (isFunction(this.schema.placeholder))
+				return this.schema.placeholder.call(this, this.model, this.field, this);
+
+			if (isNil(this.schema.placeholder)) return false;
+
+			return this.schema.placeholder;
 		}
 	},
 

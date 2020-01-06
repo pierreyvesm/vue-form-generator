@@ -41,6 +41,9 @@ export default {
 							{
 								type: "input",
 								inputType: "text",
+								placeholder: () => {
+									return "kjh";
+								},
 								label: "Effective Date or Tenor",
 								model: "effective_date",
 								required: true

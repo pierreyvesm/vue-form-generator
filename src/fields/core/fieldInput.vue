@@ -28,7 +28,7 @@
 		:multiple="schema.multiple",
 		:name="schema.inputName",
 		:pattern="schema.pattern",
-		:placeholder="schema.placeholder",
+		:placeholder="placeholder",
 		:readonly="schema.readonly",
 		:required="schema.required",
 		:size="schema.size",
