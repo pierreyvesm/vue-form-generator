@@ -79,7 +79,6 @@ export default {
 			}
 		},
 		placeholder() {
-			console.log("jh");
 			if (isFunction(this.schema.placeholder))
 				return this.schema.placeholder.call(this, this.model, this.field, this);
 

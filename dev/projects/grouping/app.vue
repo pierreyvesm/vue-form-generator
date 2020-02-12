@@ -79,13 +79,7 @@ export default {
 								type: "input",
 								inputType: "number",
 								label: "Notional",
-								model: "notional",
-								visible: () => {
-									return this.effective_date !== "aa";
-								},
-								required: () => {
-									return this.effective_date !== "vv";
-								}
+								model: "notional"
 							},
 							{
 								type: "input",
@@ -101,7 +95,6 @@ export default {
 						legend: "Advanced",
 						foldable: true,
 						styleClasses: "advance",
-						visible: (mn) => mn.effective_date === "aa",
 						groups: [
 							{
 								legend: "Fixed Leg",
