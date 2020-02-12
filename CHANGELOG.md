@@ -1,3 +1,10 @@
+## <small>2.3.16 (2020-02-12)</small>
+
+* fix form group problem ([99cb635](https://github.com/vue-generators/vue-form-generator/commit/99cb635))
+* try to fix problem ([23f8749](https://github.com/vue-generators/vue-form-generator/commit/23f8749))
+
+
+
 ## <small>2.3.12 (2020-01-06)</small>
 
 
