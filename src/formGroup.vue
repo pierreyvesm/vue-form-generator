@@ -1,5 +1,5 @@
 <template lang="pug">
-	section.form-group
+	section.vfg-group
 		template(v-for='group in groups' v-if="fieldVisible(group)")
 			drawer(v-if="groupFoldable(group)", :group="group", :model="model")
 				fieldset(slot="title")
@@ -59,5 +59,4 @@ export default {
 };
 </script>
 
-<style lang="scss">
-</style>
+<style lang="scss"></style>

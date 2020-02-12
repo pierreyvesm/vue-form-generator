@@ -1,5 +1,5 @@
 <template>
-	<div :class="getFieldRowClasses(field)" v-if="fieldVisible(field)">
+	<div class="form-group" :class="getFieldRowClasses(field)" v-if="fieldVisible(field)">
 		<label v-if="fieldTypeHasLabel(field)" :for="getFieldID(field)" :class="field.labelClasses">
 			<span v-html="fieldLabel(field)"></span>
 			<span v-if="field.help" class="help">
