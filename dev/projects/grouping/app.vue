@@ -46,7 +46,10 @@ export default {
 								},
 								label: "Effective Date or Tenor",
 								model: "effective_date",
-								required: true
+								required: true,
+								default: (mn) => {
+									return "»sd«f";
+								}
 							},
 							{
 								type: "input",

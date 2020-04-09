@@ -75,13 +75,13 @@ module.exports = [
 			}),
 			new LodashModuleReplacementPlugin({
 				collections: true,
-				paths: true,
+				paths: true
 			}),
-			new webpack.optimize.UglifyJsPlugin({
-				compress: {
-					warnings: false
-				}
-			}),
+			// new webpack.optimize.UglifyJsPlugin({
+			// 	compress: {
+			// 		warnings: false
+			// 	}
+			// }),
 			new webpack.BannerPlugin({
 				banner,
 				raw: true

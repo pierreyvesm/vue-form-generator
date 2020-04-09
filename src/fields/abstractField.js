@@ -72,7 +72,7 @@ export default {
 				newValue = this.formatValueToModel(newValue);
 
 				if (isFunction(newValue)) {
-					newValue(newValue, oldValue);
+					newValue = newValue(newValue, oldValue);
 				} else {
 					this.updateModelValue(newValue, oldValue);
 				}
