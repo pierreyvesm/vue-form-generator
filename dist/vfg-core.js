@@ -1,5 +1,5 @@
 /**
- * vue-form-generator v2.3.18
+ * vue-form-generator v2.3.20
  * https://github.com/vue-generators/vue-form-generator/
  * Released under the MIT License.
  */
@@ -435,11 +435,12 @@ function attributesDirective(el, binding, vnode) {
 			},
 			set: function set(newValue) {
 				var oldValue = this.value;
-				newValue = this.formatValueToModel(newValue);
-
+				console.log("SET");
+				console.log({ oldValue: oldValue, newValue: newValue, t: this });
 				if (__WEBPACK_IMPORTED_MODULE_7_lodash_isFunction___default()(newValue)) {
-					newValue = newValue(this.model);
+					this.updateModelValue(newValue(this.model), oldValue);
 				} else {
+					newValue = this.formatValueToModel(newValue);
 					this.updateModelValue(newValue, oldValue);
 				}
 			}
