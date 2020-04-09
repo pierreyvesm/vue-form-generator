@@ -69,12 +69,11 @@ export default {
 
 			set(newValue) {
 				let oldValue = this.value;
-				console.log("SET");
-				console.log({ oldValue, newValue, t: this });
+				newValue = this.formatValueToModel(newValue);
+
 				if (isFunction(newValue)) {
-					this.updateModelValue(newValue(this.model), oldValue);
+					newValue(newValue, oldValue);
 				} else {
-					newValue = this.formatValueToModel(newValue);
 					this.updateModelValue(newValue, oldValue);
 				}
 			}
